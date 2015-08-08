@@ -11,4 +11,8 @@ class StoreController extends Controller {
     {
         return view('backend.admin.stores.index');
     }
+     public function show()
+    {
+        return view('backend.admin.stores.show');
+    }
 }

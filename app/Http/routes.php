@@ -52,6 +52,10 @@ Route::group(['middleware' => 'auth'], function () {
                 'as'   => 'list',
                 'uses' => 'Backend\StoreController@index'
             ]);
+             Route::get('show', [
+                'as'   => 'show',
+                'uses' => 'Backend\StoreController@show'
+            ]);
         });
     });
 });

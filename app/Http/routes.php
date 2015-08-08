@@ -11,6 +11,12 @@
 |
 */
 
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1', function ($api) {
+    $api->get('pcounter', 'RetailOne\Http\Controllers\Api\VisitorController@record');
+});
+
 Route::get('', function () {
     return redirect()->route('AuthLogin');
 });
@@ -56,8 +62,3 @@ Route::group(['middleware' => 'auth'], function () {
     });
 });
 
-$api = app('Dingo\Api\Routing\Router');
-
-$api->version('v1', function ($api) {
-
-});

@@ -11,7 +11,9 @@ class RoleSeeder extends Seeder {
             [
                 'name'         => 'admin',
                 'display_name' => 'admin',
-                'description'  => 'Administrators'
+                'description'  => 'Administrators',
+                'created_at'   => Carbon\Carbon::create(),
+                'updated_at'   => Carbon\Carbon::create()
             ]
         ];
 

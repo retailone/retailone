@@ -21,12 +21,17 @@ class VisitorController extends Controller {
         $date = Carbon::create();
 
         DB::table((new Visitor())->getTable())->lockForUpdate()->insert([
-            'device_id' => Device::where('uuid', $request->get('uuid'))->first()->id,
-            'type'      => $request->get('type') ? 'in' : 'out',
+            'device_id'  => Device::where('uuid', $request->get('uuid'))->first()->id,
+            'type'       => $request->get('type') ? 'in' : 'out',
             'created_at' => $date,
             'updated_at' => $date
         ]);
 
         return $this->response()->created();
+    }
+
+    public function query(Request $request)
+    {
+
     }
 }

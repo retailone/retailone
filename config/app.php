@@ -147,7 +147,6 @@ return [
         Dingo\Api\Provider\LaravelServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         yajra\Datatables\DatatablesServiceProvider::class,
-        Intouch\LaravelNewrelic\NewrelicServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
     ],
 

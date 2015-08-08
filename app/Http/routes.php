@@ -21,6 +21,10 @@ Route::get('', function () {
     return redirect()->route('AuthLogin');
 });
 
+Route::get('home', function () {
+    return redirect()->route('admin::dashboard');
+});
+
 // Authentication routes...
 Route::get('auth/login', [
     'as'         => 'AuthLogin',

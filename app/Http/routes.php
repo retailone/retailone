@@ -19,7 +19,7 @@ $api->version('v1', function ($api) {
 });
 
 Route::get('', function () {
-    return redirect()->route('AuthLogin');
+    return view('welcome');
 });
 
 Route::get('home', function () {

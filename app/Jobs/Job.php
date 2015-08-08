@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace RetailOne\Jobs;
 
 use Illuminate\Bus\Queueable;
 

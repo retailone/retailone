@@ -1,0 +1,23 @@
+{
+    "name": "intouch/newrelic",
+    "type": "library",
+    "keywords": ["NewRelic", "New Relic"],
+    "homepage": "http://github.com/In-Touch/newrelic/",
+    "license": "Apache 2.0",
+    "description": "Namespaced Wrapper for NewRelic PHP Agent",
+    "authors": [
+        {
+            "name": "Patrick Leckey",
+            "email": "pleckey@intouchinsight.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Intouch\\Newrelic": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

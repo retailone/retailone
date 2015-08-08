@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace RetailOne\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace RetailOne\Http\Controllers\Auth;
 
-use App\User;
+use RetailOne\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use RetailOne\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

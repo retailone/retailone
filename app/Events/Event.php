@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace RetailOne\Events;
 
 abstract class Event
 {

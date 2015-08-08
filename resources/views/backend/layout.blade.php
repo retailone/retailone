@@ -70,7 +70,7 @@
     </nav>
 
     <div id="page-wrapper">
-        <div class="container">
+        <div class="container-fluid">
             @yield('contents')
         </div>
     </div>
@@ -91,6 +91,8 @@
 <script src="{{ asset('js/plugins/morris/morris-data.js') }}"></script>
 <script src="{{ asset('js/highcharts.js') }}"></script>
 <script src="{{ asset('js/exporting.js') }}"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
 
 @yield('javascript')
 </body>

@@ -15,6 +15,7 @@ $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', function ($api) {
     $api->get('pcounter', 'RetailOne\Http\Controllers\Api\VisitorController@record');
+    $api->get('query', 'RetailOne\Http\Controllers\Api\VisitorController@query');
 });
 
 Route::get('', function () {
@@ -22,7 +23,7 @@ Route::get('', function () {
 });
 
 Route::get('home', function () {
-    return redirect()->route('admin::dashboard');
+    return redirect()->route('admin::clients.list');
 });
 
 // Authentication routes...
@@ -44,7 +45,7 @@ Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::group(['prefix' => 'admin', 'as' => 'admin::', 'middleware' => 'role.admin'], function () {
+    Route::group(['prefix' => 'admin', 'as' => 'admin::'], function () {
         Route::get('', [
             'as'   => 'dashboard',
             'uses' => 'Backend\AdminController@index'
@@ -62,7 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
                 'as'   => 'list',
                 'uses' => 'Backend\StoreController@index'
             ]);
-             Route::get('show', [
+             Route::get('{id}', [
                 'as'   => 'show',
                 'uses' => 'Backend\StoreController@show'
             ]);

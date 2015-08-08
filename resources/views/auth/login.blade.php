@@ -12,16 +12,13 @@
     <title>@yield('title', 'RetailOne')</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet">
+    <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,8 +31,6 @@
 
 <body>
 
-<div id="wrapper">
-    <div id="page-wrapper">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
@@ -66,22 +61,15 @@
                 </div>
             </div>
         </div>
-    </div>
     <!-- /#page-wrapper -->
 
-</div>
 <!-- /#wrapper -->
 
 <!-- jQuery -->
-<script src="js/jquery.js"></script>
+<script src="{{ asset('js/jquery.js') }}"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-<!-- Morris Charts JavaScript -->
-<script src="js/plugins/morris/raphael.min.js"></script>
-<script src="js/plugins/morris/morris.min.js"></script>
-<script src="js/plugins/morris/morris-data.js"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
 @yield('javascript')
 </body>

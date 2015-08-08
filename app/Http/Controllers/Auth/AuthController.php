@@ -2,6 +2,7 @@
 
 namespace RetailOne\Http\Controllers\Auth;
 
+use Illuminate\Auth\Guard;
 use RetailOne\User;
 use Validator;
 use RetailOne\Http\Controllers\Controller;
@@ -23,13 +24,21 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+    protected $redirectPath;
+
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Guard $auth)
     {
+        $this->auth = $auth;
+
+        if($this->auth->check()) {
+            $this->redirectPath = $this->auth->user()->getRole();
+        }
+
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
@@ -61,5 +70,17 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function getLogin()
+    {
+        return view('auth.login');
+    }
+
+    public function getLogout()
+    {
+        $this->auth->logout();
+
+        return redirect('auth/login');
     }
 }

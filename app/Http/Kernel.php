@@ -29,5 +29,6 @@ class Kernel extends HttpKernel
         'auth' => \RetailOne\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \RetailOne\Http\Middleware\RedirectIfAuthenticated::class,
+        'role.admin' => Middleware\RoleAdminCheck::class
     ];
 }

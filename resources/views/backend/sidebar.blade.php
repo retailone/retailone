@@ -1,9 +1,9 @@
-<li class="active">
-    <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+<li>
+    <a href="{{ route('admin::dashboard') }}"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
 </li>
 <li>
-    <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+    <a href="{{ route('admin::clients.list') }}"><i class="fa fa-fw fa-bar-chart-o"></i> Clients</a>
 </li>
 <li>
-    <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
+    <a href="{{ route('admin::stores.list') }}"><i class="fa fa-fw fa-table"></i> Stores</a>
 </li>

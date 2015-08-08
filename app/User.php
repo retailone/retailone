@@ -33,4 +33,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function getRole() {
+        // we only get the first role this user has.
+
+        return @($this->roles()->first()->name) ?: null;
+    }
 }

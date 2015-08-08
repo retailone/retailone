@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'ClientSeeder' => $baseDir . '/database/seeds/ClientSeeder.php',
     'CreateClientsTable' => $baseDir . '/database/migrations/2015_08_08_010000_create_clients_table.php',
     'CreateDeviceTypesTable' => $baseDir . '/database/migrations/2015_08_08_010002_create_device_types_table.php',
     'CreateDevicesTable' => $baseDir . '/database/migrations/2015_08_08_010003_create_devices_table.php',
@@ -14,6 +15,8 @@ return array(
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'CreateVisitorsTable' => $baseDir . '/database/migrations/2015_08_08_062027_create_visitors_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
+    'DeviceSeeder' => $baseDir . '/database/seeds/DeviceSeeder.php',
+    'DeviceTypeSeeder' => $baseDir . '/database/seeds/DeviceTypeSeeder.php',
     'EntrustSetupTables' => $baseDir . '/database/migrations/2015_08_08_161248_entrust_setup_tables.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
@@ -515,6 +518,7 @@ return array(
     'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => $vendorDir . '/sebastian/recursion-context/src/InvalidArgumentException.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Resources/stubs/SessionHandlerInterface.php',
+    'StoreSeeder' => $baseDir . '/database/seeds/StoreSeeder.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'Zizaco\\Entrust\\ClassCreatorCommand' => $vendorDir . '/zizaco/entrust/src/commands/ClassCreatorCommand.php',

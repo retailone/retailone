@@ -12,7 +12,9 @@ class CreateVisitorsTable extends Migration
      */
     public function up()
     {
+        Schema::create('', function() {
 
+        });
     }
 
     /**
@@ -22,6 +24,9 @@ class CreateVisitorsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('visitors', function($table)
+        {
+
+        });
     }
 }

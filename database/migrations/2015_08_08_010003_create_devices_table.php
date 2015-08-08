@@ -31,6 +31,7 @@ class CreateDevicesTable extends Migration
     public function down()
     {
         Schema::table('devices', function(Blueprint $table) {
+            $table->dropForeign('device_types_device_type_id_foreign');
             $table->dropForeign('devices_store_id_foreign');
             $table->drop();
         });

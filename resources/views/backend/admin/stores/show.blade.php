@@ -5,7 +5,7 @@
 @stop
 
 @section('contents')
-	X
+	show
 @stop
 
 @section('js')

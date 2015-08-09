@@ -95,12 +95,7 @@
 
 @yield('javascript')
 <script>
-    ;(function($){
-		  $('#page-wrapper').css({ height: $(window).innerHeight() });
-		  $(window).resize(function(){
-		    $('#page-wrapper').css({ height: $(window).innerHeight() });
-		  });
-	})(jQuery);	
+
 </script>
 
 </body>

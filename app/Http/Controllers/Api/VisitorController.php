@@ -78,6 +78,7 @@ class VisitorController extends Controller {
                 break;
         }
 
-        return (new VisitorRepository($data))->periodical($period, $dateparsed_from_original);
+        return $request->has('totals') ? (new VisitorRepository($data))->totals($period, $dateparsed_from_original)
+            : (new VisitorRepository($data))->periodical($period, $dateparsed_from_original);
     }
 }

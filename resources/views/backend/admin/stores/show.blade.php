@@ -2,9 +2,21 @@
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/css/bootstrap-datepicker3.min.css" />
+    <link href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" rel="stylesheet">
+    <style>
+        #dataTableBuilder_wrapper {
+            height: auto !important;
+        }
+    </style>
 @stop
 
 @section('contents')
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{{ $store->name }}</h1>
+        </div>
+    </div>
+    <hr>
     <div class="row">
         <div class="col-md-12">
             <div class="form-horizontal">
@@ -12,13 +24,13 @@
                     <div class="col-md-6">
                         <label class="control-label">Period: </label>
                         <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-primary active">
+                            <label class="btn btn-warning active">
                                 <input type="radio" name="period" id="day" autocomplete="off" checked value="day"> Day
                             </label>
-                            <label class="btn btn-primary">
+                            <label class="btn btn-warning">
                                 <input type="radio" name="period" id="week" autocomplete="off" value="week"> Week
                             </label>
-                            <label class="btn btn-primary">
+                            <label class="btn btn-warning">
                                 <input type="radio" name="period" id="month" autocomplete="off" value="month"> Month
                             </label>
                         </div>
@@ -33,12 +45,56 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-forward fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><span id="total_in"></span></div>
+                                    <div>Total (In)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-gray">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-backward fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><span id="total_out"></span></div>
+                                    <div>Total (Out)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
 	<div class="row">
 		<div class="col-md-12">
-			<h3>Visits</h3>
-			<div id="visits" style="height: auto;"></div>
+			<h3>Visits <span id="date_from"></span></h3>
+			<div id="visits"></div>
 		</div>
 	</div>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-12">
+            {!! $html->table() !!}
+        </div>
+    </div>
 
 @stop
 
@@ -81,15 +137,32 @@
             });
         };
 
+        var callTotalsApi = function() {
+            return $.get('/api/query',{
+                period: $("input:radio[name=period]:checked").val(),
+                device_id: '{{ $device->id }}',
+                from: $("#daterange").val(),
+                to: '',
+                totals: true
+            }, function(data) {
+                $('#total_in').text(data.in);
+                $('#total_out').text(data.out);
+                $('#date_from').text();
+            });
+        };
+
         callApi();
+        callTotalsApi();
     </script>
     <script>
         $('input:radio[name=period]').on('change', function () {
             updateData();
+            callTotalsApi();
         });
 
         $('#daterange').on('change', function () {
             updateData();
+            callTotalsApi();
         });
     </script>
 
@@ -101,4 +174,6 @@
             autoclose: true
         });
     </script>
+    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    {!! $html->scripts() !!}
 @stop

@@ -7,6 +7,7 @@ namespace RetailOne\Http\Controllers\Backend;
 use RetailOne\Device;
 use RetailOne\Http\Controllers\Controller;
 use RetailOne\Store;
+use RetailOne\Visitor;
 use yajra\Datatables\Datatables;
 
 class StoreController extends Controller {
@@ -28,10 +29,19 @@ class StoreController extends Controller {
         return view('backend.admin.stores.index', compact('html'));
     }
 
-    public function show($id)
+    public function show(Datatables $datatables, $id)
     {
+        $store  = Store::findOrFail($id);
         $device = Device::findOrFail($id);
 
-        return view('backend.admin.stores.show', compact('device'));
+        if ($datatables->getRequest()->ajax()) {
+            return $datatables->of(Visitor::select(['type', 'device_id', 'created_at'])
+                ->where('device_id', $device->id)->orderBy('created_at', 'desc'))
+                ->make(true);
+        }
+
+        $html = $datatables->getHtmlBuilder()->columns(['type', 'created_at']);
+
+        return view('backend.admin.stores.show', compact('device', 'store', 'html'));
     }
 }

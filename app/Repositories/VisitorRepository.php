@@ -113,4 +113,41 @@ class VisitorRepository {
 
         return $transform;
     }
+
+    public function totals($period, Carbon $from, Carbon $to = null)
+    {
+        switch ($period) {
+
+            case 'week':
+                $y_axis = DB::raw("DAY(created_at) as $period");
+                break;
+            case 'month':
+                $y_axis = DB::raw("DAY(created_at) as $period");
+                break;
+            case 'year':
+                $y_axis = DB::raw("MONTH(created_at) as $period");
+                break;
+            case 'day':
+            default:
+                $y_axis = DB::raw("HOUR(created_at) as $period");
+                break;
+        }
+
+        $prd = $this->data->select([
+            DB::raw('count(id) as `count`'),
+            $y_axis,
+            'type'
+        ])->groupBy($period)->groupBy('type')->get();
+
+        $colle = new Collection($prd);
+
+        return [
+            'in' => $colle->sum(function ($x) {
+                return ($x->type == 'in') ? $x->count : 0;
+            }),
+            'out' => $colle->sum(function ($x) {
+                return ($x->type == 'out') ? $x->count : 0;
+            }),
+        ];
+    }
 }

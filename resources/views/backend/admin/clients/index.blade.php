@@ -14,5 +14,13 @@
 
 @section('javascript')
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script>
+	    ;(function($){
+			  $('#page-wrapper').css({ height: $(window).innerHeight() });
+			  $(window).resize(function(){
+			    $('#page-wrapper').css({ height: $(window).innerHeight() });
+			  });
+		})(jQuery);	
+	</script>
     {!! $html->scripts() !!}
 @stop

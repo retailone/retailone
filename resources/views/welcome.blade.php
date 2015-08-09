@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="{{ asset('css/animate.css') }}">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="{{ asset('js/wow.js') }}"></script>
 
         <style>
             html, body {
@@ -45,6 +46,15 @@
                 opacity: .9;
 				box-shadow: 0px 0px 20px 20px #DD572D;
             }
+            .subtitle {
+	            font-size: 50px;
+                position: absolute;
+                top: 100%;
+                left: 10%;
+                text-align: center;
+                opacity: .8;
+                background: #fff;
+            }
             .carousel-inner > .item > img,
 			.carousel-inner > .item > a > img {
 			    width: 100%;
@@ -55,7 +65,6 @@
     <body>	    
 		<div class="container-fluid">
 			<div class="row">
-				<div class="title">Retail One</div>
 	            <div id="myCarousel" class="carousel slide" data-ride="carousel">
 				  <!-- Indicators -->
 				  <ol class="carousel-indicators">
@@ -89,18 +98,21 @@
 				    <span class="sr-only">Next</span>
 				  </a>
 				</div>
-			</div>    
+			</div>
+			   
 		</div>        
 	    <div class="container-fluid">
 			<div class="row">           
-                <div class="title"><img src="images/logo2.jpg" alt=""></div>
+                <div class="title wow slideInLeft"><img src="images/logo2.jpg" alt=""></div>
+                <div class="subtitle wow slideInRight">Retail store analytics & platform solutions</div>
             </div>
         </div>
         <script>
-			new WOW().init();
+	        ;(function($){
+				new WOW().init();
+			})(jQuery);	
 		</script>
 		<script src="{{ asset('js/jquery.js') }}"></script>
 		<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-		<script src="{{ asset('js/wow.js') }}"></script>
     </body>
 </html>

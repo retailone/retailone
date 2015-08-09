@@ -7,6 +7,7 @@
         <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="{{ asset('css/animate.css') }}">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -55,6 +56,23 @@
                 opacity: .8;
                 background: #fff;
             }
+            
+            .bnt1 {
+	            font-size: 50px;
+			    position: absolute;
+			    top: 70%;
+			    text-align: center;
+			    opacity: .8;
+			    margin: 0 auto;
+			    width: 100%;
+            }
+            .btn2 {
+	            font-weight: 900;
+	            font-size: 43px;
+	            font-family: verdana;
+                color: #000;
+            }
+            
             .carousel-inner > .item > img,
 			.carousel-inner > .item > a > img {
 			    width: 100%;
@@ -104,6 +122,17 @@
 	    <div class="container-fluid">
 			<div class="row">           
                 <div class="title wow slideInLeft"><img src="images/logo2.jpg" alt=""></div>
+            </div>    
+            <div class="row"> 
+	            <div class="bnt1 wow pulse animated"> 
+		                        
+		            <div class="btn2cls ">
+			            <a href="/auth/login"><button class="btn btn-success btn2"><i class="fa fa-check-square-o"></i>SIGN-UP FOR BETA PREVIEW</button></a>
+			        </div>
+	            
+	            </div>
+            </div>    
+            <div class="row">     
                 <div class="subtitle wow slideInRight">Retail store analytics & platform solutions</div>
             </div>
         </div>
